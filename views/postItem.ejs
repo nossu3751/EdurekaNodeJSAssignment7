@@ -1,0 +1,53 @@
+<%- include('./layouts/head.ejs') %>
+<body>
+    <%- include('./layouts/header.ejs', {user: user}) %>
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="card" style="width: 30rem; box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.15)">
+                <div class="card-header" style="text-align:center; background-color:#fc9d03">
+                    <h4 style="font-weight:bold; color:#ffd99c">Add Item</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/api/item" method="POST" >
+                        <div class="form-group mb-3">
+                            <div class="row my-auto">
+                                <div class="col-1 my-auto">
+                                    <i class="fas fa-signature fa-auto" style="color:#fc9d03; font-size:x-large"></i>
+                                </div>
+                                <div class="col-11">
+                                    <input style="border-radius:500px" name="name" type="text" class="form-control" placeholder="Enter Item Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <div class="row my-auto">
+                                <div class="col-1 my-auto">
+                                    <i class="fas fa-users my-auto" style="color:#fc9d03; font-size:x-large"></i>
+                                </div>
+                                <div class="col-11">
+                                    <input style="border-radius:500px" name="seller" type="text" class="form-control" placeholder="Enter Seller Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-5">
+                            <div class="row my-auto">
+                                <div class="col-1 my-auto">
+                                    <i class="fas fa-dollar-sign my-auto" style="color:#fc9d03; font-size:x-large"></i>
+                                </div>
+                                <div class="col-11">
+                                    <input style="border-radius:500px" name="price" type="text" class="form-control" placeholder="Enter Price" required>
+                                </div>
+                            </div>          
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="submit" class="btn btn-block btn-outline-info" style="border-radius:500px">
+                        </div>
+                        <div class="row mt-3 justify-content-center">
+                            <small> <a href="/login" style="text-decoration:none"> Already have an account? </a></small>
+                        </div>    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

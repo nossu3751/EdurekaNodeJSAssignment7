@@ -1,0 +1,64 @@
+<%- include('./layouts/head.ejs') %>
+<body>
+    <%- include('./layouts/header.ejs', {user: user}) %>
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+
+            <h3>Hello, 
+            <span style="color:#ffaa00"><%= user.name %></span>, 
+            You are <span style="color:#ffaa00"><%=user.admin?"An Administrator":"A Normal User"%> !</span></h3>
+        
+        </div>
+        <% if(user.admin == true){ %>
+
+            <div class="row">
+                <div class="col-4">
+                    <a href="/userList" style="text-decoration:none; color:white">
+                    <button class="btn btn-block btn-info">
+                        User List
+                    </button>
+                   </a>
+                </div>
+                <div class="col-4">
+                    <a href="/postItem" style="text-decoration:none; color:white">
+                        <button class="btn btn-block btn-info">
+                            Add Product
+                        </button>
+                    </a>
+                    
+                </div>
+                <div class="col-4">
+                    <a href="/addUser" style="text-decoration:none; color:white">
+                        <button class="btn btn-block btn-info">
+                            Add User
+                        </button>
+                    </a>
+                </div>
+            </div>
+        
+        <% } %>
+        
+        <div class="row mt-5">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Seller</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let s of shoppingList){ %>
+                        <tr>
+                            <th scope="row"><%= s.name%></th>
+                            <td><%= s.seller%></td>
+                            <td><%= s.price%></td>
+                        </tr>
+                    <% } %> 
+                </tbody>
+            </table>
+        </div>
+
+        
+    </div>
+</body>

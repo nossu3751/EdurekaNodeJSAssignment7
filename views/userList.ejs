@@ -1,0 +1,29 @@
+<%- include('./layouts/head.ejs') %>
+<body>
+    <%- include('./layouts/header.ejs', {user: user}) %>
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">User Name</th>
+                    <th scope="col">User Email</th>
+                    <th scope="col">Admin?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let u of userList){ %>
+                        <tr>
+                            <th scope="row"><%= u.name %></th>
+                            <td><%= u.email %></td>
+                            <td><%= u.admin ? "Yes":"" %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</body>
